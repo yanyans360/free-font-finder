@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Matcher</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="file"] {
+      display: block;
+      margin-bottom: 1rem;
+    }
+    #preview {
+      width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+    .suggestions {
+      margin-top: 1rem;
+    }
+    .font-item {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Font Matcher</h1>
+    <p>Upload an image of a font you like, and we'll suggest free fonts to try!</p>
+    <input type="file" id="fontImageInput" accept="image/*">
+    <img id="preview" src="" alt="Image preview" hidden>
+    <div id="loading" hidden>Analyzing font... (simulated)</div>
+    <div class="suggestions" id="suggestions"></div>
+  </div>
+
+  <script>
+    const fontImageInput = document.getElementById('fontImageInput');
+    const preview = document.getElementById('preview');
+    const loading = document.getElementById('loading');
+    const suggestions = document.getElementById('suggestions');
+
+    const sampleFontSuggestions = [
+      { name: "Montserrat", url: "https://fonts.google.com/specimen/Montserrat" },
+      { name: "Lato", url: "https://fonts.google.com/specimen/Lato" },
+      { name: "Raleway", url: "https://fonts.google.com/specimen/Raleway" },
+      { name: "Poppins", url: "https://fonts.google.com/specimen/Poppins" },
+      { name: "Playfair Display", url: "https://fonts.google.com/specimen/Playfair+Display" }
+    ];
+
+    fontImageInput.addEventListener('change', () => {
+      const file = fontImageInput.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          preview.src = e.target.result;
+          preview.hidden = false;
+          loading.hidden = false;
+          suggestions.innerHTML = '';
+
+          // Simulate font recognition and matching delay
+          setTimeout(() => {
+            loading.hidden = true;
+            showSuggestions();
+          }, 2000);
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function showSuggestions() {
+      suggestions.innerHTML = '<h2>Similar Free Fonts</h2>';
+      sampleFontSuggestions.forEach(font => {
+        const div = document.createElement('div');
+        div.className = 'font-item';
+        div.innerHTML = `<strong>${font.name}</strong><br><a href="${font.url}" target="_blank">View on Google Fonts</a>`;
+        suggestions.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>
