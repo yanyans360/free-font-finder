@@ -7,18 +7,22 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Font Matcher</h1>
-    <p>Upload an image of a font you like, and we’ll suggest similar free fonts!</p>
-    <input type="file" id="fontImageInput" accept="image/*" />
-    <img id="preview" src="" alt="Image preview" hidden />
+  <main class="container">
+    <header>
+      <h1>Font Matcher</h1>
+      <p class="tagline">Upload a font you like. We'll match it with free alternatives.</p>
+    </header>
+    <section class="uploader">
+      <input type="file" id="fontImageInput" accept="image/*" />
+      <img id="preview" src="" alt="Font Preview" hidden />
+    </section>
     <div id="loading" hidden>Analyzing font... (simulated)</div>
-    <div class="suggestions" id="suggestions"></div>
-    <p class="credit">
-      Font analysis powered by <a href="https://github.com/artset/WhatTheFont" target="_blank">WhatTheFont</a> (DeepFont reimplementation).<br>
-      Color palette inspired by butterfly wing macro photography.
-    </p>
-  </div>
+    <section class="suggestions" id="suggestions"></section>
+    <footer>
+      <p>Font analysis inspired by <a href="https://github.com/artset/WhatTheFont" target="_blank">WhatTheFont</a>.</p>
+      <p>Design influenced by <a href="https://www.yzavoku.com" target="_blank">YZA Voku</a>. Colors drawn from butterfly macro photography.</p>
+    </footer>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

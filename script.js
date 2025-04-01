@@ -31,7 +31,7 @@ fontImageInput.addEventListener('change', () => {
 });
 
 function showSuggestions() {
-  suggestions.innerHTML = '<h2>Similar Free Fonts</h2>';
+  suggestions.innerHTML = '<h2>Free Font Matches</h2>';
   sampleFontSuggestions.forEach(font => {
     const div = document.createElement('div');
     div.className = 'font-item';
