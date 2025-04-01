@@ -1,0 +1,59 @@
+:root {
+  --bg-color: #E8DCEB;
+  --primary-color: #A8D376;
+  --accent-color: #D4932A;
+  --text-color: #1A130D;
+  --border-color: #3B2B1C;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 2rem;
+  margin: 0;
+}
+
+.container {
+  background: white;
+  border-left: 8px solid var(--primary-color);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(26, 19, 13, 0.1);
+}
+
+input[type="file"] {
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+#preview {
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  max-height: 300px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.font-item {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.credit {
+  font-size: 0.8rem;
+  margin-top: 2rem;
+  color: #444;
+}
